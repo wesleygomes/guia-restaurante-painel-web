@@ -1,0 +1,13 @@
+.parallax-container{
+    height: 300px;
+}
+.row{
+    margin: 0 0 20px 0;
+}
+.card-status{
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+.card-image{
+    max-width: 250px !important;
+}
