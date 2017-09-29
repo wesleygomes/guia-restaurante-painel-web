@@ -10,8 +10,8 @@
     </div>
   </li>
   <li><div class="divider"></div></li>
-  <li *ngIf="user !== null" ><a [routerLink]="['/login']"><i class="material-icons">person</i>Acessar</a></li>
-  <li *ngIf="user !== null" ><a [routerLink]="['/register']"><i class="material-icons">add_box</i>Cadastrar</a></li>
+  <li *ngIf="user == null" ><a [routerLink]="['/login']"><i class="material-icons">person</i>Acessar</a></li>
+  <li *ngIf="user == null" ><a [routerLink]="['/register']"><i class="material-icons">add_box</i>Cadastrar</a></li>
   
   <li *ngIf="user !== null" [routerLinkActive]="['active']"><a class="subheader">Minha conta</a></li>
   <li *ngIf="user !== null" [routerLinkActive]="['active']"><a [routerLink]="['/profile']"><i class="material-icons">account_circle</i>Editar dados</a></li>
