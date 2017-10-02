@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { FormControl } from '@angular/forms';
 
 import { AuthService } from './../services/auth.service';
 
@@ -11,6 +12,7 @@ import { AuthService } from './../services/auth.service';
 export class ProfileComponent implements OnInit {
 
     user: Object = {};
+    update_profile: string = 'Salvar';
 
     constructor(
         private authService: AuthService,
@@ -18,21 +20,25 @@ export class ProfileComponent implements OnInit {
     ) { }
 
     ngOnInit(): void {
-        this.authService.getUser().then((res) => {
-            this.user = res;
-            window.Materialize.updateTextFields();
-        });
+        this.authService
+            .getUser()
+            .then((res) => {
+                this.user = res;
+                window.Materialize.updateTextFields();
+            });
     }
 
     save(e) {
         e.preventDefault();
 
-        this.authService.builder().editProfile(this.user)
+        this.update_profile = 'Salvando...';
+
+        this.authService.builder()
+            .editProfile(this.user)
             .then(() => {
-                window.Materialize.toast('Salvo com sucesso', 3000);
-            })
-            .then(() => {
+                this.update_profile = 'Salvar';
+                window.Materialize.toast('Dados atualizado com sucesso', 3000);
                 this.router.navigate(['/dashboard']);
-            })
+            });
     }
 }

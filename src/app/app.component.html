@@ -4,19 +4,21 @@
       <div class="background lime">
         <img src="http://www.elportalsedona.com/wp-content/uploads/2013/03/adobe-background-dark-red.jpg">
       </div>
-      <a><img class="circle" src="https://secure.gravatar.com/avatar/4e709024f97bedb392eb5f1da00657da"></a>
+      <a><img class="circle" src="https://secure.gravatar.com/avatar/{{user.mail_hash }}"></a>
       <a><span class="white-text name">{{user.name}}</span></a>
       <a><span class="white-text email">{{user.email}}</span></a>
     </div>
   </li>
-  <li><div class="divider"></div></li>
-  <li *ngIf="user == null" ><a [routerLink]="['/login']"><i class="material-icons">person</i>Acessar</a></li>
-  <li *ngIf="user == null" ><a [routerLink]="['/register']"><i class="material-icons">add_box</i>Cadastrar</a></li>
-  
+  <li>
+    <div class="divider"></div>
+  </li>
+  <li *ngIf="user == null"><a [routerLink]="['/login']"><i class="material-icons">person</i>Acessar</a></li>
+  <li *ngIf="user == null"><a [routerLink]="['/register']"><i class="material-icons">add_box</i>Cadastrar</a></li>
+
   <li *ngIf="user !== null" [routerLinkActive]="['active']"><a class="subheader">Minha conta</a></li>
   <li *ngIf="user !== null" [routerLinkActive]="['active']"><a [routerLink]="['/profile']"><i class="material-icons">account_circle</i>Editar dados</a></li>
   <li *ngIf="user !== null" [routerLinkActive]="['active']"><a [routerLink]="['/password']"><i class="material-icons">security</i>Trocar senha</a></li>
-  <li *ngIf="user !== null" ><a [routerLink]="['/logout']"><i class="material-icons">cancel</i>Sair</a></li>
+  <li *ngIf="user !== null"><a [routerLink]="['/logout']"><i class="material-icons">cancel</i>Sair</a></li>
 </ul>
 
 <header>

@@ -45,4 +45,9 @@ export class AuthService extends AppHttpService {
     return this.toPromise(observable);
   }
 
+  register(data) {
+    let observable = this.http.post(this.url + '/register', data, { headers: this.header });
+    return this.toPromise(observable);
+  }
+
 }

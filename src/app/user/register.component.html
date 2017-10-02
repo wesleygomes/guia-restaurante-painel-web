@@ -1,6 +1,6 @@
 <div class="row">
     <div class="col s12">
-        <h4><i class="material-icons">keyboard_arrow_right</i>Meus dados <small class="grey-text">atualize suas informações</small></h4>
+        <h4><i class="material-icons">keyboard_arrow_right</i>Cadastrar <small class="grey-text">cadastre suas informações</small></h4>
     </div>
 
     <div class="col s12">
@@ -17,7 +17,12 @@
                 </div>
 
                 <div class="input-field col s12">
-                    <input type="submit" [value]="update_profile" class="btn" [ngClass]="{'disabled': update_profile === 'Salvando...'}" [disabled]="frm.invalid">
+                    <input id="password" name="password" type="password" placeholder="Senha" [(ngModel)]="user.password" [required]="true">
+                    <label for="password">Senha</label>
+                </div>
+
+                <div class="input-field col s12">
+                    <input type="submit" [value]="create_user" class="btn" [ngClass]="{'disabled': create_user === 'Salvando...'}" [disabled]="frm.invalid">
                 </div>
             </form>
         </div>

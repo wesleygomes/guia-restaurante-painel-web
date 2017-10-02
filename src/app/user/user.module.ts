@@ -9,12 +9,14 @@ import { PasswordComponent } from "./password.component";
 import { ProfileComponent } from "./profile.component";
 import { LoginComponent } from './login.component';
 import { LogoutComponent } from './logout.component';
+import { RegisterComponent } from './register.component';
 
 const appRoutes: Routes = [
   { path: 'password', component: PasswordComponent },
   { path: 'profile', component: ProfileComponent },
   { path: 'login', component: LoginComponent },
   { path: 'logout', component: LogoutComponent },
+  { path: 'register', component: RegisterComponent },
 ];
 
 @NgModule({
@@ -22,7 +24,8 @@ const appRoutes: Routes = [
     PasswordComponent,
     ProfileComponent,
     LoginComponent,
-    LogoutComponent
+    LogoutComponent,
+    RegisterComponent
   ],
   imports: [
     CommonModule,
