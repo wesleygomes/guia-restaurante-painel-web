@@ -1,9 +1,9 @@
 import { Component } from '@angular/core';
+import { ActivatedRoute } from '@angular/router'
 import * as jQuery from 'jquery';
 
 import { AuthService } from './../../services/auth.service';
 import { AppHttpService } from './../../services/app-http.service';
-import { ActivatedRoute } from '@angular/router'
 
 @Component({
   selector: 'app-restaurants',
@@ -18,7 +18,8 @@ export class RestaurantDescribeComponent {
   viewPhone: boolean = false;
   vote: any = { points: '', comment: '' };
 
-  constructor(private route: ActivatedRoute,
+  constructor(
+    private route: ActivatedRoute,
     protected authService: AuthService,
     private appHttpService: AppHttpService,
   ) { }
@@ -32,19 +33,24 @@ export class RestaurantDescribeComponent {
         }
       }
 
+      
+
       this.authService.getUser()
         .then((res) => {
           this.user = res;
         });
 
       this.appHttpService.builder('restaurants')
-        .view(id).then(res => this.restaurant = res);
+        .view(id)
+        .then(res => this.restaurant = res);
 
       this.appHttpService.builder('dishes')
-        .list(options).then(res => this.dishes = res);
+        .list(options)
+        .then(res => this.dishes = res);
 
       this.appHttpService.builder('restaurants/' + id + '/photos')
-        .list().then(res => {
+        .list()
+        .then(res => {
           this.photos = res
           setTimeout(() => {
             jQuery('.materialboxed').materialbox();
@@ -63,6 +69,7 @@ export class RestaurantDescribeComponent {
 
   addVote(e, vote) {
     e.preventDefault();
+
     jQuery('.modal').modal();
     jQuery('.modal').modal('open');
     this.vote.points = vote || '';
@@ -70,7 +77,7 @@ export class RestaurantDescribeComponent {
 
   sendVote(e) {
     e.preventDefault();
-    console.log('rodou')
+
     jQuery('.modal').modal('close');
     this.vote.restaurant_id = this.id;
     this.vote.user_id = this.user.id;

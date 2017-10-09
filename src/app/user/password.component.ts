@@ -27,7 +27,7 @@ export class PasswordComponent {
             this.authService.builder().changePassword(this.user)
                 .then(() => {
                     window.Materialize.toast('Salvo com sucesso', 3000);
-                    this.router.navigate(['/dashboard']);
+                    this.router.navigate(['/search']);
                 });
         } else {
             window.Materialize.toast('Verifique a senha', 3000, 'red');

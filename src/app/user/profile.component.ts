@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
 import { FormControl } from '@angular/forms';
+//import { Router } from '@angular/router';
 
 import { AuthService } from './../services/auth.service';
 
@@ -16,14 +16,14 @@ export class ProfileComponent implements OnInit {
 
     constructor(
         private authService: AuthService,
-        private router: Router
+        //private router: Router
     ) { }
 
     ngOnInit(): void {
         this.authService
             .getUser()
-            .then((res) => {
-                this.user = res;
+            .then((user: any) => {
+                this.user = user;
                 window.Materialize.updateTextFields();
             });
     }
@@ -38,7 +38,7 @@ export class ProfileComponent implements OnInit {
             .then(() => {
                 this.update_profile = 'Salvar';
                 window.Materialize.toast('Dados atualizado com sucesso', 3000);
-                this.router.navigate(['/dashboard']);
+                //this.router.navigate(['/search']);
             });
     }
 }

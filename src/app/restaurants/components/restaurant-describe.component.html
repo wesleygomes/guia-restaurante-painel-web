@@ -12,20 +12,20 @@
     <div *ngIf="restaurant.votes_qtd > 0; else noVotes">
       <p>
         <a href="" (click)="addVote($event, 1)">
-                  <i class="material-icons" [ngClass]="classToVotes(1)">star_border</i>
-              </a>
+              <i class="material-icons" [ngClass]="classToVotes(1)">star_border</i>
+          </a>
         <a href="" (click)="addVote($event, 2)">
-                  <i class="material-icons" [ngClass]="classToVotes(2)">star_border</i>
-              </a>
+              <i class="material-icons" [ngClass]="classToVotes(2)">star_border</i>
+          </a>
         <a href="" (click)="addVote($event, 3)">
-                  <i class="material-icons" [ngClass]="classToVotes(3)">star_border</i>
-              </a>
+              <i class="material-icons" [ngClass]="classToVotes(3)">star_border</i>
+          </a>
         <a href="" (click)="addVote($event, 4)">
-                  <i class="material-icons" [ngClass]="classToVotes(4)">star_border</i>
-              </a>
+              <i class="material-icons" [ngClass]="classToVotes(4)">star_border</i>
+          </a>
         <a href="" (click)="addVote($event, 5)">
-                  <i class="material-icons" [ngClass]="classToVotes(5)">star_border</i>
-              </a>
+              <i class="material-icons" [ngClass]="classToVotes(5)">star_border</i>
+          </a>
       </p>
       <p>{{ restaurant.votes_qtd }} votos</p>
     </div>
@@ -37,7 +37,7 @@
 
   <div class="col s12">
     <ul class="tabs">
-      <li class="tab col s3"><a href="#cardapio">Cardápio</a></li>
+      <li class="tab col s3"><a class="active" href="#cardapio">Cardápio</a></li>
       <li class="tab col s3"><a href="#fotos">Fotos do restaurante</a></li>
     </ul>
   </div>

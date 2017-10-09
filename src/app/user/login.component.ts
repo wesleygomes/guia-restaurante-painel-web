@@ -33,6 +33,7 @@ export class LoginComponent {
         e.preventDefault();
 
         this.acessar = 'Validando....';
+
         if (!this.user.username || !this.user.password) {
             window.Materialize.toast('Preencha o formulário', 3000, 'red');
             return;
@@ -49,8 +50,6 @@ export class LoginComponent {
 
         this.authService.login(data).then((res) => {
             this.acessar = 'Acessar';
-            document.cookie = "token=" + res.access_token + "; expires=" + res.expires_in;
-            this.authService.setAccessToken();
             this.router.navigate(['/search']);
         });
     }

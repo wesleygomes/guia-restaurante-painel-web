@@ -1,8 +1,10 @@
 import { Injectable, EventEmitter } from '@angular/core';
 import { Http } from '@angular/http';
+
 import { AppHttpService } from './app-http.service';
 
 import { environment } from './../../environments/environment';
+
 import 'rxjs/add/operator/toPromise';
 
 @Injectable()
@@ -17,6 +19,8 @@ export class AuthService extends AppHttpService {
   login(data) {
     let observable = this.http.post(environment.server_url + '/oauth/token', data);
     return this.toPromise(observable).then((res) => {
+      document.cookie = "token=" + res.access_token + "; expires=" + res.expires_in;
+      this.setAccessToken();
       this.eventEmitter.emit();
       return res;
     });
@@ -28,7 +32,7 @@ export class AuthService extends AppHttpService {
       this.eventEmitter.emit();
       return res;
     });
-  }
+  }  
 
   getUser() {
     return this.builder('/me')

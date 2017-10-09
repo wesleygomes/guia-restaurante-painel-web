@@ -18,7 +18,7 @@ export class RestaurantComponent implements OnInit {
   constructor(private appHttpService: AppHttpService) { }
 
   ngOnInit() {
-    jQuery('.parallax').parallax();
+    jQuery(".parallax").parallax();
   }
 
   search(e) {
@@ -43,8 +43,8 @@ export class RestaurantComponent implements OnInit {
         }
 
         let body = jQuery("html, body");
-        body.stop().animate({ scrollTop: 300 }, 500, 'swing');
-      })
+        body.stop().animate({scrollTop:300}, 500, 'swing');
+      });
   }
 
 }

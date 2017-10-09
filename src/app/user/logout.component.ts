@@ -16,9 +16,9 @@ export class LogoutComponent implements OnInit {
 
     ngOnInit() {
         this.authService.builder().logout()
-        .then(() => {
-            document.cookie = "token=; expires=Thu, 01-Jan-70 00:00:01 GMT;";
-            this.router.navigate(['/login']);
-        });
+            .then(() => {
+                document.cookie = "token=; expires=Thu, 01 Jan 1970 00:00:01 GMT";
+                this.router.navigate(['/login']);
+            });
     }
 }
